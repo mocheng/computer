@@ -1,3 +1,13 @@
+/**
+ * This is a naive implmentation of hastable.
+ * Storage is a fixed-size array.
+ * Hash method is simple mod operation on table size.
+ * Collision is solved by finding next available slot.
+ *
+ * All this design decision is not ideal, just proof-of-work.
+ */
+
+
 "use strict";
 
 var HASH_TABLE_SIZE = 128;
