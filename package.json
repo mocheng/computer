@@ -1,0 +1,38 @@
+{
+  "name": "computer",
+  "version": "0.0.1",
+  "description": "Basic and advanced computer problems.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "jshint": "jshint basic",
+    "jshintr-test": "jshint test"
+  },
+  "pre-commit": [
+    "jshint",
+    "jshint-test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mocheng/computer"
+  },
+  "keywords": [
+    "basic",
+    "advanced",
+    "computer"
+  ],
+  "author": "Morgan Cheng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mocheng/computer/issues"
+  },
+  "homepage": "https://github.com/mocheng/computer",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "pre-commit": "0.0.9",
+    "should": "^4.6.0",
+    "jshint": "~2.5.2"
+  }
+}
