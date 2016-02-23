@@ -2,11 +2,16 @@
 
 var HASH_TABLE_SIZE = 128;
 
+// This is a very naive hash key calcuation which just mod table size. In practice,
+// it should be random enough to avoid collision.
 function get_hash(key) {
   return key % HASH_TABLE_SIZE;
 }
 
 function HashTable() {
+  // the table stores key-value pair object.
+  // `key` field is needed for exact matching.
+  //
   this._table = new Array(HASH_TABLE_SIZE);
 
   return this;
@@ -17,9 +22,11 @@ HashTable.prototype.get = function(key) {
   var hash_key = initial_hash;
 
   while (!this._table[hash_key] || this._table[hash_key].key != key) {
-    //console.log(hash_key);
     hash_key = (hash_key + 1) % HASH_TABLE_SIZE;
+
     if (hash_key === initial_hash) {
+      // if hit here, it means hash_key has loop around the whole table and
+      // go back to intial value. We should break here to avoid infinite looping.
       break;
     }
   }
@@ -38,7 +45,9 @@ HashTable.prototype.set = function(key, val) {
 
   while (this._table[hash_key] || (this._table[hash_key] && this._table[hash_key].key != key)) {
     hash_key = (hash_key + 1) % HASH_TABLE_SIZE;
+
     if (hash_key === initial_hash) {
+      // same reason as `set` function, to avoid infinite looping.
       break;
     }
   }

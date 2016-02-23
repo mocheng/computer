@@ -36,4 +36,14 @@ describe('hashtable', function() {
     hash.get(128+1).should.be.eql('one hundred and nine');
   });
 
+  it('set should return null if table is full', function() {
+    var hash = new HashTable();
+    var i;
+
+    for(i=0; i<128; ++i) {
+      hash.set(i, i+':').should.be.eql(i+':');
+    }
+    (hash.set(i, 'one') === null).should.be.true;
+  });
+
 });
