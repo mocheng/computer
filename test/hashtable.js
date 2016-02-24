@@ -1,3 +1,5 @@
+"use strict";
+
 var HashTable = require('../basic/hashtable/naive');
 
 require('should');
